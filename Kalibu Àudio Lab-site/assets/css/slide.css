@@ -1,0 +1,89 @@
+
+section.slider{    /* */
+    margin: 0 auto;  /*responsavel pela centralização das imagens do carrossel */
+    width: 100%;  /* largura do slide (ocupando toda a tela no sentido longitudinal) */
+    height: auto;  /* altura automatica */
+    padding: 0 !important;  /* espaçamento do slide em relação as margens */
+    overflow: hidden; /*oculta a rolagem longitudinal da pagina*/
+}
+
+.slider-content{  /*estilização do conteudo do slide */
+    width: 400%;
+    height: auto;
+    display: flex; /*posicionamento das imagens tipo "lado a lado"*/
+    margin-top: 30px; /*posicionamento da margem superior do slide*/
+}
+
+
+
+.slider-content input, .img-mobile {
+    display: none; /*oculta os "inputs*/
+}
+
+.slide-box{ /*"guarda" as imagens*/
+    width: 25%;
+    height: auto;
+    position: relative;
+    text-align: center; /*posicionamento das imagens no centro*/
+    transition: 1s; 
+
+}
+
+.slide-box img{
+    width: 100%;
+}
+
+.nav-manual, .nav-auto{ /*estilização dos icones de navegação manual*/
+    position: absolute; /*restringe o icone de navegação manual para que ele nao exceda os limites da pagina */
+    width: 100%;
+    margin-top: 36%;
+    justify-content: center;
+
+}
+
+.nav-manual .manual-btn, .nav-auto div{ /*estilização dos icones de navegação manual/automatico*/
+    border: 1px solid #9c9494; /*cor do icones de navegação manual e espessura de borda*/
+    padding: 10px; 
+    border-radius: 50%; /*forma geometrica redonda*/
+    cursor: pointer; /*muda a cor do icone quando passar o mouse*/
+    transition: 0.2s; /*velocidade de transição*/
+    display: none; /*esconde a imagem de mobile*/
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){ /* espaçamento dos icones de navegação dos slides*/
+    margin-right: 10px; /*valor do espaçamento a direita*/
+}
+
+.nav-manual .manual-btn:hover{ /*muda a cor quando passa o mouse*/
+    background-color: #9c9494;
+}
+
+#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3{
+    background-color: #9c9494; /* muda a cor do marcador quando o seu respectivo radio estiver marcado */
+}
+
+#radio1:checked ~ .primeiro{ 
+    margin-left: 0%; /* responsavel pela transição das imagens do carrosel */
+}
+
+#radio2:checked ~ .primeiro{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .primeiro{
+    margin-left: -50%;
+}
+
+@media screen and (max-width: 768px) {  /* responsavel pela responsividade da tela quando em modo mobile*/
+ .img-desktop{
+     display: none;
+    }
+   
+  .img-mobile{
+    display: block;
+   }
+
+   .nav-auto, .nav-manual{
+    margin-top: 40%; 
+   }
+}
